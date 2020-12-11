@@ -98,7 +98,7 @@ ENABLE_R=0
 
 # Enable Julia integration
 ENABLE_JULIA=1
-JULIA_INSTALL=/home/ubuntu/julia-1.5.3
+JULIA_INSTALL=/home/ubuntu/EQ-JL/julia-1.5.3
 
 # Enable JVM scripting
 ENABLE_JVM_SCRIPTING=0
