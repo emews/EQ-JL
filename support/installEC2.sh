@@ -1,4 +1,8 @@
 #!/bin/sh
+# INSTALL
+# Swift/T with Julia 1.5
+# Sets up paths for Swift/T
+
 sudo apt update
 sudo apt upgrade
 sudo apt install -y build-essential swig zsh ant default-jdk default-jre tcl8.6 tcl8.6-dev autoconf
