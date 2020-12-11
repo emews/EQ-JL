@@ -34,5 +34,6 @@ cp support/swift-t-files/tcl-julia.c swift-t/turbine/code/src/tcl/julia/tcl-juli
 
 swift-t/dev/build/build-swift-t.sh
 
-export PATH=$PATH:/home/ubuntu/EQ-JL/swift-t-install/stc/bin:/home/ubuntu/EQ-JL/swift-t-install/turbine/bin
-
+echo 'export PATH=$PATH:/home/ubuntu/EQ-JL/swift-t-install/stc/bin' >> ~/.bashrc
+echo 'export PATH=$PATH:/home/ubuntu/EQ-JL/swift-t-install/turbine/bin' >> ~/.bashrc
+source ~/.bashrc
