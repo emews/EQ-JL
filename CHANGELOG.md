@@ -43,7 +43,7 @@ The best way for experimenting with Swift-t EQ-JL is to run on an Amazon EC2 mul
 
 1. Launch a new EC2 instance using the ```ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-20201026``` AMI (ami-0a91cd140a1fc148a), the latest ubuntu image.
 2. ```git clone https://github.com/emews/EQ-JL.git```
-3. ```support/installEC2.sh```
+3. ```cd EQ-JL && support/installEC2.sh```
 3. Run [noop](examples/noop) example.
 
 Working with Swift-t commit [822df8db992e2c301ef68ecfac8b3dfc3cd8663d](https://github.com/swift-lang/swift-t/commit/822df8db992e2c301ef68ecfac8b3dfc3cd8663d).
