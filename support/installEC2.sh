@@ -3,8 +3,8 @@
 # Swift/T with Julia 1.5
 # Sets up paths for Swift/T
 
-sudo apt update
-sudo apt upgrade
+sudo apt update -y
+sudo apt upgrade -y
 sudo apt install -y build-essential swig zsh ant default-jdk default-jre tcl8.6 tcl8.6-dev autoconf
 
 curl https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-1.5.3-linux-x86_64.tar.gz --output julia-1.5.3-linux-x86_64.tar.gz
