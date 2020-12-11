@@ -20,7 +20,7 @@
 # Please fill in all of these variables
 
 # Install root: change to your install location
-export SWIFT_T_PREFIX=/home/ubuntu/swift-t-install
+export SWIFT_T_PREFIX=/home/ubuntu/EQ-JL/swift-t-install
 
 #+====================================+
 #|| Optional configuration variables ||
