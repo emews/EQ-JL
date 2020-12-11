@@ -12,6 +12,7 @@ For using EQ-JL with your Julia code, you must be sure that you are using a Swif
   - Line 314 added ```INCLUDES += -I $(USE_JULIA)/include/julia```
   - Line 390 ```JULIA_LIB = $(USE_JULIA)/lib``` 
 - turbine/code/src/tcl/julia/tcl-julia.c
+  - Line 36 change to ``` jl_init();```
   - Line 12 added library ```#include <dlfcn.h>``` in order to do the dynamic link from external source through 
 ```dlopen("libjulia.so", RTLD_NOW | RTLD_GLOBAL);```
   - Line 38 commented definition ```JL_SET_STACK_BASEM;``` in function ```julia_inizialize(void)```
