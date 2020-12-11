@@ -19,7 +19,6 @@ function algo()
 end
 @async algo()
 ```
-"""
 
 The working of the queue is equal to the [EQPy queue](https://github.com/emews/EQ-Py), please refer to it.
 
