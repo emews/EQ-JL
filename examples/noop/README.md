@@ -3,7 +3,7 @@
 ## Usage instructions
 
 1. Do `./setup.sh`
-2. Do `swift/run`
+2. Do `bash swift/run.sh`
 
 In this case, the ```julia/algorithm.jl``` simply sends a list of data (separated by _;_) over the queues to Swift, which increments and reports it.
 
