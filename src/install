@@ -1,0 +1,19 @@
+#!/bin/bash
+set -eu
+
+# Installs EQ/JL Swift header and Julia queues in given TARGET directory
+# TARGET directory is typically T_PROJECT_ROOT/ext/EQ-JL
+# Creates TARGET directory if it does not exist
+
+if (( ${#} != 1 ))
+then
+  echo "Requires installation directory!"
+  exit 1
+fi
+  
+TARGET=$1
+
+EQJL=$( cd $( dirname $0 ) ; /bin/pwd )
+
+mkdir -pv ${TARGET}
+cp -uv ${EQJL}/{eqjl.jl,EQJL.swift} ${TARGET}
