@@ -4,7 +4,7 @@ There are currently the following examples (see their Readmes):
 
 - Example: [noop](example/noop) - This is only for those interested in learning how the EMEWS queues work.
 
-## ⚠️ using a Swift-t version working with Julia 1.5
+## ⚠️ Swift-t version working with Julia 1.5
 
 EQ-JL is designed on top of Julia 1.5, for this reason you must be sure that your version fo Swift-t has enabled with Julia 1.5. For installing Swift-t with Julia 1.5 you can follow our [CHANGELOG](CHANGELOG).  
 ### Authors
