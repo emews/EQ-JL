@@ -9,7 +9,7 @@ swift/run
 
 ## Overview
 
-This runs a real EA with http://deap.readthedocs.io/en/master[DEAP].  The objective function is simply:
+This runs a real GA with https://juliahub.com/docs/Evolutionary.  The objective function is simply:
 
 _sin(4x) + sin(4y) - 2x + x² - 2y + y²_
 
