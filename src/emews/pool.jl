@@ -1,7 +1,7 @@
 module pool
 export Pool, mapWorker
-# import Pkg
-# Pkg.add("JLD")
+import Pkg
+Pkg.add("JLD")
 using JLD
 
 using eqjl

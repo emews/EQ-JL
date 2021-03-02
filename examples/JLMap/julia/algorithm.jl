@@ -6,14 +6,14 @@ Authors: Carmine Spagnuolo and Giuseppe D'Ambrosio
 
 using Distributed
 
-# import Pkg
-# Pkg.add("JSON")
+import Pkg
+Pkg.add("JSON")
 import JSON
-# Pkg.add("Evolutionary")
+Pkg.add("Evolutionary")
 import Evolutionary
-# Pkg.add("Random")
+Pkg.add("Random")
 import Random
-# Pkg.add("Distributions")
+Pkg.add("Distributions")
 import Distributions
 
 using eqjl
@@ -59,7 +59,7 @@ function main()
     params = JSON.parsefile(algo_params_file)
 
     # tmp_dir = joinpath(TURBINE_OUTPUT, "tmp") #TOCHECK HOW TO GET TURBINE_OUTPUT
-    tmp_dir = "/home/giuseppe/Git/EQ-JL/examples/JLMap/experiments/1/tmp"
+    tmp_dir = string(pwd(), "/experiments/1/tmp")
     
     global _pool = Pool(tmp_dir, "workers")
     @eval @everywhere _pool = _pool

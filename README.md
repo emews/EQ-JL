@@ -3,7 +3,8 @@
 There are currently the following examples (see their Readmes):
 
 - Example: [noop](examples/noop) - This is only for those interested in learning how the EMEWS queues work.
-- Example: [ga0](examples/ga0) - A "pure math" genetic algorithm in Swift
+- Example: [ga0](examples/ga0) - A "pure math" genetic algorithm in Swift.
+- Example: [JLMap](examples/JLMap) - A "pure math" genetic algorithm in Swift developed to distribute the work on different workerks. _WorkInProgress_
 
 ## ⚠️ Swift-t version working with Julia 1.5
 

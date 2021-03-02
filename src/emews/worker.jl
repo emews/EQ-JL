@@ -1,5 +1,5 @@
-# import Pkg;
-# Pkg.add("JLD");
+import Pkg;
+Pkg.add("JLD");
 using JLD;
 
 function chunker(li, total_chunks)

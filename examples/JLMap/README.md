@@ -1,10 +1,12 @@
 # GA0: Genetic Algorithm, Difficulty Zero
 
+## Work in progress ⚠️
+
 ## Quick start instructions
 
 ```
 ./setup.sh
-swift/run
+swift/run_workflow.sh 1 swift/local.cfg
 ```
 
 ## Overview
@@ -20,15 +22,7 @@ It is expressed for the workflow as a Julia snippet in workflow.swift
 ### Entry points
 
 * setup.sh: Installs the EQ-JL system into this project directory
-* swift/run: Runs the workflow
-
-### Supporting files
-
-* julia/algorithm.jl: EQ-JL program that runs the GA algorithm using Evolutionary.jl lib
-* swift/settings.json: Settings processed by algorithm.jl
-* swift/workflow.swift: The Swift script. Receives parameters from algorithm.jl, executes them on the objective function (`task()`), and returns results to GA.
-
-The working of the queue is equal to the [EQ-Py queue](https://github.com/emews/EQ-Py), please refer to it.
+* swift/run_workflow.sh 1 swift/local.cfg: Runs the workflow with experiment's name "1"
 
 ## Authors
 
