@@ -17,5 +17,4 @@ export TURBINE_RESIDENT_WORK_WORKERS=1
 
 stc -p -I $EQJL -r$EQJL $EMEWS_PROJECT_ROOT/swift/workflow.swift
 
-turbine -n 3 $EMEWS_PROJECT_ROOT/swift/workflow.tic \
-        -path="$EMEWS_PROJECT_ROOT/julia" --module="algorithm"
+turbine -n 3 $EMEWS_PROJECT_ROOT/swift/workflow.tic --module="algorithm"

@@ -4,8 +4,7 @@ Authors: Carmine Spagnuolo and Giuseppe D'Ambrosio
 
 """
 
-include("../ext/EQ-JL/eqjl.jl")
-using .eqjl
+using eqjl
 
 import Pkg
 Pkg.add("JSON")

@@ -1,12 +1,12 @@
 module eqjl
-import Pkg;
-Pkg.add("DataStructures");
-using DataStructures;
+export OUT_put, IN_get, output_get, input_q, output_q
+
+using DataStructures
 
     EQJL_ABORT = "EQJL_ABORT"
 
-    input_q = Deque{Any}()
-    output_q = Deque{Any}()
+    global input_q = Deque{Any}()
+    global output_q = Deque{Any}()
 
     function OUT_put(string_params)
         @async push!(output_q, string_params)

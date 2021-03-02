@@ -13,7 +13,6 @@ import sys;
 import EQJL;
 
 string emews_root = getenv("EMEWS_PROJECT_ROOT");
-string path = argv("path");
 string module = argv("module");
 
 N = 10;
@@ -53,7 +52,7 @@ loop(int N)
        b=c)
   {
     message = EQJL_get(L);
-    // printf("swift: message: %s", message);
+    printf("swift: message: %s", message);
     boolean c;
     if (message == "FINAL")
     {
@@ -82,7 +81,7 @@ loop(int N)
 settings_filename = argv("settings");
 
 printf("SWIFT WORKFLOW STARTING...")=>
-  EQJL_init_package(L, path, module) =>
+  EQJL_init_package(L, emews_root, module) =>
   handshake(settings_filename) =>
   loop(N) =>
   EQJL_stop(L) =>

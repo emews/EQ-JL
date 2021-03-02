@@ -15,7 +15,6 @@ import string;
 import EQJL;
 
 string emews_root = getenv("EMEWS_PROJECT_ROOT");
-string path = argv("path");
 string module = argv("module");
 
 (void v) loop(location L)
@@ -62,7 +61,7 @@ main() {
   printf("SWIFT WORKFLOW STARTING...");
 
   location L = locationFromRank(1);
-  EQJL_init_package(L, path, module) =>
+  EQJL_init_package(L, emews_root, module) =>
   loop(L) =>
   EQJL_stop(L) =>
     printf("SWIFT WORKFLOW COMPLETE");

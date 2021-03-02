@@ -14,11 +14,11 @@ pragma worktypedef resident_work;
 (string output) _string_jl(string code) "turbine" "0.1.0"
     [ "set <<output>> [ julia::eval <<code>>]" ];
 
-string init_package_string = "include(\"%s/%s.jl\"); using .%s;";
+string init_package_string = "push!(LOAD_PATH, \"%s/ext/EQ-JL/emews\");include(\"%s/julia/%s.jl\"); using .%s;";
 (void v) EQJL_init_package(location loc, string path, string module){
-    //printf("EQJL_init_package ...");
-    string code = init_package_string % (path, module, module); //,packageName);
-    //printf("EQJL_init_package code is: \n%s;", code);
+    printf("EQJL_init_package ...");
+    string code = init_package_string % (path, path, module, module); //,packageName);
+    printf("EQJL_init_package code is: \n%s;", code);
     @location=loc _void_jl(code) => v = propagate();
 }
 
@@ -31,19 +31,16 @@ EQJL_stop(location loc){
 string get_string = "result = eqjl.output_get()";
 
 (string result) EQJL_get(location loc){
-    //printf("EQJL_get called");
     string code = get_string;
-    //printf("EQJL_get: \n%s", code);
+    // printf("EQJL_get: \n%s", code);
     result = @location=loc _string_jl(code);
 }
 
 string put_string = "push!(eqjl.input_q, \"%s\");";
 
 (void v) EQJL_put(location loc, string data){
-    //printf("EQJL_put called with: \n%s", data);
     string code = put_string % data;
-    //printf("EQJL_put  %s", code);
-    //printf("EQJL_put code: \n%s", code);
+    // printf("EQJL_put code: \n%s", code);
     @location=loc _string_jl(code) => v = propagate();
 }
 
