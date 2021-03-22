@@ -1,7 +1,3 @@
-import Pkg;
-Pkg.add("JLD");
-using JLD;
-
 function chunker(li, total_chunks)
     item_count = length(li)
     if total_chunks > item_count
@@ -13,6 +9,8 @@ function chunker(li, total_chunks)
     remainder = item_count - (chunk_size * num_chunks)
     used_chunk_size = chunk_size + 1
     r = []
+    # println("item_count: ", item_count, ", num_chunks: ", num_chunks, ", chunk_size: ", chunk_size, ", remainder: ", remainder)
+
     for i  = 0:num_chunks-1
         if i >= remainder
             cs = used_chunk_size - 1
@@ -29,14 +27,13 @@ function chunker(li, total_chunks)
         _end = (i * cs + offset) + cs
         push!(r, li[start:_end])
     end
-    return r
+    r
 end
 
 function run(chunk_idx, total_chunks, step, data_dir)
-    
     args_path = string("args_", step, ".jld")
     args_f = joinpath(data_dir, args_path)
-    args = jldopen(args_f, "r") do f_in
+    args = JLD.jldopen(args_f, "r") do f_in
         read(f_in, "data")
     end
     
@@ -45,7 +42,7 @@ function run(chunk_idx, total_chunks, step, data_dir)
     # ex: path/to/folder;moduleName
     func_path = string("func_", step, ".jld")
     func_f = joinpath(data_dir, func_path)
-    func = jldopen(func_f, "r") do f_in
+    func = JLD.jldopen(func_f, "r") do f_in
         read(f_in, "data")
     end
 
@@ -61,21 +58,20 @@ function run(chunk_idx, total_chunks, step, data_dir)
     if total_chunks == 1
         chunk = args
     else
-        chunk = chunker(args, total_chunks)[chunk_idx]
+        chunk = chunker(args, total_chunks)[chunk_idx+1]
     end
 
-    result = []
-    
+    result = []    
     for arg in chunk
-        _func(args; kws...) = @eval objfuncF($args...; $kws...)
+        _func(arg; kws...) = @eval objfuncF($arg...; $kws...)
         push!(result, _func(arg))
     end
 
     result_path = string("result_", chunk_idx, ".jld")
     result_f = joinpath(data_dir, result_path)
-    jldopen(result_f, "w") do f_out
+    JLD.jldopen(result_f, "w") do f_out
         write(f_out, "data", result)
-    end    
+    end
 end
 
 if abspath(PROGRAM_FILE) == @__FILE__

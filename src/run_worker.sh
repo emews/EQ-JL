@@ -14,6 +14,5 @@ then
 fi
 
 echo "Running jlmap worker"
-
-julia $EQJL_ROOT/emews/worker.jl $CHUNK_IDX $TOTAL_CHUNKS $STEP $DATA_DIR
-
+# using sysimage to reduce execution time
+julia --sysimage $EQJL_ROOT/emews/worker.so $EQJL_ROOT/emews/worker.jl $CHUNK_IDX $TOTAL_CHUNKS $STEP $DATA_DIR

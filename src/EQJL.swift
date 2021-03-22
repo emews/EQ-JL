@@ -1,4 +1,3 @@
-
 /*
    EMEWS EQJL.swift
 */
@@ -14,10 +13,10 @@ pragma worktypedef resident_work;
 (string output) _string_jl(string code) "turbine" "0.1.0"
     [ "set <<output>> [ julia::eval <<code>>]" ];
 
-string init_package_string = "push!(LOAD_PATH, \"%s/ext/EQ-JL/emews\");include(\"%s/julia/%s.jl\"); using .%s;";
+string init_package_string = "push!(LOAD_PATH, \"%s/ext/EQ-JL/emews\");include(\"%s/julia/%s.jl\"); using .%s";
 (void v) EQJL_init_package(location loc, string path, string module){
     printf("EQJL_init_package ...");
-    string code = init_package_string % (path, path, module, module); //,packageName);
+    string code = init_package_string % (path, path, module, module);
     printf("EQJL_init_package code is: \n%s;", code);
     @location=loc _void_jl(code) => v = propagate();
 }
@@ -43,7 +42,3 @@ string put_string = "push!(eqjl.input_q, \"%s\");";
     // printf("EQJL_put code: \n%s", code);
     @location=loc _string_jl(code) => v = propagate();
 }
-
-// Local Variables:
-// c-basic-offset: 4
-// End:

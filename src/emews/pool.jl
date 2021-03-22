@@ -1,9 +1,6 @@
 module pool
 export Pool, mapWorker
-import Pkg
-Pkg.add("JLD")
 using JLD
-
 using eqjl
 
     mutable struct Pool
@@ -25,7 +22,6 @@ using eqjl
     end
     
     function __read_result(pool, fname)
-        # println("pool.jl __read_result fname: ", fname)
         r = jldopen(fname, "r") do f_in
             read(f_in, "data")
         end
@@ -33,7 +29,7 @@ using eqjl
     end
 
     function mapWorker(pool, func, args)
-
+        
         func_path = string("func_", pool.step, ".jld")
         func_f = joinpath(pool.tmp_dir, func_path)
         jldopen(func_f, "w") do f_out
@@ -47,12 +43,12 @@ using eqjl
         end
 
         cmd = string("jlmap|", pool.step, "|", length(args), "|", pool.tmp_dir, "|", pool.rank_type)
+        println(cmd)
         OUT_put(cmd)
         
         result = IN_get()
         pool.step += 1
         results = split(result, ";")
-        
         lists = [__read_result(pool, x) for x in results]
         return [y for x in lists for y in x]
     end
