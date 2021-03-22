@@ -8,6 +8,8 @@ using Distributed
 using eqjl
 using pool
 
+# uncomment if you need to install the packages
+
 # import Pkg
 # Pkg.add("Random")
 using Random
